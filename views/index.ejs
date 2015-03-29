@@ -26,7 +26,12 @@
     <script>
       window.picker = {
         user: <%- JSON.stringify(user) %>,
-        flashes: []
+        flashes: [],
+        globals: {
+          age: null,
+          zipcode: null,
+          doctor: null
+        }
       };
     </script>
 

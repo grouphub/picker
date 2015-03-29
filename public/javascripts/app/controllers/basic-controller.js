@@ -32,8 +32,8 @@ app.controller('BasicController', [
         return;
       }
 
-      $cookieStore.put('age', $scope.form.age);
-      $cookieStore.put('zipcode', $scope.form.zipcode);
+      picker.globals.age = $scope.form.age;
+      picker.globals.zipcode = $scope.form.zipcode;
 
       $location.path('/doctors')
     };
