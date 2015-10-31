@@ -146,19 +146,19 @@ app.controller('DoctorsController', [
     };
 
     $scope.submit = function () {
-      $cookieStore.put('doctor', JSON.stringify($scope.currentDoctor));
+      picker.globals.doctor = JSON.stringify($scope.currentDoctor);
 
       $location.path('/recommendations')
     };
 
     $scope.skip = function () {
-      $cookieStore.put('doctor', undefined);
+      picker.globals.doctor = null;
 
       $location.path('/recommendations')
     };
 
-    age = $cookieStore.get('age');
-    zipcode = $cookieStore.get('zipcode');
+    age = picker.globals.age;
+    zipcode = picker.globals.zipcode;
 
     if (!picker.user) {
       // ...
