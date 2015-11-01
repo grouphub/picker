@@ -7,8 +7,8 @@ app.controller('RecommendationsController', [
   '$location',
   'flashesFactory',
   function ($scope, $cookieStore, $http, $location, flashesFactory) {
-    var age = $cookieStore.get('age');
-    var zipcode = $cookieStore.get('zipcode');
+    var age = picker.globals.age;
+    var zipcode = picker.globals.zipcode;
 
     $scope.topPlans = undefined;
 
@@ -46,7 +46,7 @@ app.controller('RecommendationsController', [
     }
 
     $scope.pickPlan = function (plan) {
-      $cookieStore.put('plan', JSON.stringify(plan));
+      picker.globals.plan = JSON.stringify(plan);
 
       $location.path('/details')
     }
