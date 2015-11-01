@@ -1,5 +1,8 @@
 require 'open-uri'
 require 'json'
+require 'bundler/inline'
+
+
 
 states = {
   'AL' => 'Alabama',

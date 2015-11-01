@@ -6,7 +6,7 @@ var Promise = require('bluebird');
 var tinylr = require('tiny-lr');
 var mongo = require('mongod');
 var bcrypt = require('bcrypt-nodejs');
-
+var picker = require('./picker.js');
 var app = require('./lib/app');
 var config = require('./lib/config');
 
@@ -144,7 +144,7 @@ gulp.task('seed', function () {
       password: bcrypt.hashSync('testtest')
     }
   ];
-
+  log(config.databaseUrl);              
   var database = mongo(config.databaseUrl, config.databaseTables);
 
   Promise.resolve()
