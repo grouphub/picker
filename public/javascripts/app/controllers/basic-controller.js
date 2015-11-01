@@ -35,7 +35,7 @@ app.controller('BasicController', [
       picker.globals.age = $scope.form.age;
       picker.globals.zipcode = $scope.form.zipcode;
 
-      $location.path('/doctors')
+      $location.path('/dashboard')
     };
 
     $scope.clearJumbotron();

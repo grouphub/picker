@@ -20,7 +20,7 @@ app.controller('SignupController', [
 
           flashesFactory.add('success', 'Created your account!');
 
-          $location.path('/basic')
+          $location.path('/dashboard')
         })
         .catch(function (response) {
           var message = (response.data && response.data.error) ?

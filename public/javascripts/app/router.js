@@ -45,6 +45,10 @@ app.config([
         templateUrl: '/templates/details.html',
         controller: 'DetailsController'
       })
+      .when('/details2', {
+        templateUrl: '/templates/details2.html',
+        controller: 'DetailsController'
+      })
       .when('/success', {
         templateUrl: '/templates/success.html',
         controller: 'SuccessController'
@@ -52,6 +56,18 @@ app.config([
       .when('/connect', {
         templateUrl: '/templates/connect.html',
         controller: 'ConnectController'
+      })
+      .when('/onboarding', {
+        templateUrl: '/templates/onboarding.html',
+        controller: 'OnboardingController'
+      })
+      .when('/onboarding2', {
+        templateUrl: '/templates/onboarding2.html',
+        controller: 'OnboardingController'
+      })
+      .when('/records', {
+        templateUrl: '/templates/records.html',
+        controller: 'RecordsController'
       })
       .otherwise({
         redirectTo: '/'

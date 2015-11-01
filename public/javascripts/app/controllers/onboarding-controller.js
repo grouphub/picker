@@ -1,16 +1,15 @@
 var app = angular.module('pickerApp');
 
-app.controller('ConnectController', [
+app.controller('OnboardingController', [
   '$scope',
   '$http',
   '$location',
   '$cookieStore',
-  '$timeout',
   'flashesFactory',
-  function ($scope, $http, $location, $cookieStore, $timeout, flashesFactory) {
-    $scope.ready();
+  function ($scope, $http, $location, $cookieStore, flashesFactory) {
+    var age = '35';
+    var zipcode = '85001';
 
-<<<<<<< HEAD
     $scope.name = function (doctor) {
       var middleName = (doctor.profile.middle_name && doctor.profile.middle_name.length === 1) ?
         (doctor.profile.middle_name + '.') :
@@ -147,39 +146,19 @@ app.controller('ConnectController', [
     };
 
     $scope.submit = function () {
-      picker.globals.doctor = JSON.stringify($scope.currentDoctor);
-=======
-    $scope.clearJumbotron();
->>>>>>> 410a7b388bbf7d9722ff4d7f8887e90d94740cae
-
-    var data = {
-      // A labels array that can contain any sort of values
-      labels: ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
-      // Our series array that contains series objects or in this case series data arrays
-      series: [
-        [.9, .8, .6, .8, .7, .5, .7, .6, .5, .4, .5, .4],
-        [.2, .2, .5, .2, .2, .6, .2, .2, .2, .3, .3, .2]
-      ]
-    };
-
-<<<<<<< HEAD
-    $scope.skip = function () {
-      picker.globals.doctor = null;
+      $cookieStore.put('doctor', JSON.stringify($scope.currentDoctor));
 
       $location.path('/recommendations')
-=======
-    var options = {
-      low: 0,
-      showArea: true
->>>>>>> 410a7b388bbf7d9722ff4d7f8887e90d94740cae
     };
-    // Create a new line chart object where as first parameter we pass in a selector
-    // that is resolving to our chart container element. The Second parameter
-    // is the actual data object.
 
-<<<<<<< HEAD
-    age = picker.globals.age;
-    zipcode = picker.globals.zipcode;
+    $scope.skip = function () {
+      $cookieStore.put('doctor', undefined);
+
+      $location.path('/recommendations')
+    };
+
+    age = '35';
+    zipcode = '85001';
 
     if (!picker.user) {
       // ...
@@ -199,16 +178,8 @@ app.controller('ConnectController', [
       .get('/api/v1/plans.json?zipcode=' + zipcode + '&age=' + age)
       .then(function (response) {
         $scope.plans = response.data;
-        window.picker.plans = $scope.plans;
 
-        $scope.plans.doctors = _($scope.plans.doctors)
-          .sortBy(function (doctor) {
-            return $scope.averageRating(doctor);
-          })
-          .reverse();
-
-        $scope.topDoctors = $scope.plans.doctors.slice(0, 10);
-        $scope.offset = 0;
+        console.log($scope.plans);
 
         $scope.ready();
       })
@@ -219,13 +190,30 @@ app.controller('ConnectController', [
 
         flashesFactory.add('danger', message);
       });
+    
 
     $scope.clearJumbotron();
-=======
-    $timeout(function () {
-      new Chartist.Line('.ct-chart', data, options);
-    }, 100);
->>>>>>> 410a7b388bbf7d9722ff4d7f8887e90d94740cae
+
+    $scope.ready();
+
+    // Just to move the highlighted plan around
+    $('.option-select').on('click', function() {
+      var count = $('.option-select.active').length;
+      if ( $(this).hasClass('active') ) {
+        count--;
+      } else {
+        count++;
+      }
+      if ( count < 2 ) {
+        $('.plan').removeClass('highlight');
+        $('#planA').addClass('highlight');
+      } else if ( count < 4 ) {
+        $('.plan').removeClass('highlight');
+        $('#planB').addClass('highlight');
+      } else {
+        $('.plan').removeClass('highlight');
+        $('#planC').addClass('highlight');
+      } 
+    });
   }
 ]);
-
