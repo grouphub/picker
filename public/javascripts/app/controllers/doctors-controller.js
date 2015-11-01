@@ -155,7 +155,7 @@ app.controller('DoctorsController', [
       picker.globals.doctor = null;
 
       $location.path('/recommendations')
-    };
+    } ;
 
     age = picker.globals.age;
     zipcode = picker.globals.zipcode;
