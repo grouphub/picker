@@ -7,8 +7,13 @@ app.controller('DoctorsController', [
   '$cookieStore',
   'flashesFactory',
   function ($scope, $http, $location, $cookieStore, flashesFactory) {
-    var age;
-    var zipcode;
+
+    var age = $cookieStore.get('age');
+    var zipcode = $cookieStore.get('zipcode');
+
+    if(!zipcode){
+      $location.path('/basic')
+    }
 
     $scope.name = function (doctor) {
       var middleName = (doctor.profile.middle_name && doctor.profile.middle_name.length === 1) ?
