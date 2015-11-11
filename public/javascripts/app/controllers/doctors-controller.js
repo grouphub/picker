@@ -7,8 +7,13 @@ app.controller('DoctorsController', [
   '$cookieStore',
   'flashesFactory',
   function ($scope, $http, $location, $cookieStore, flashesFactory) {
-    var age;
-    var zipcode;
+
+    var age = picker.globals.age;
+    var zipcode = picker.globals.zipcode;
+
+    if(!zipcode){
+      $location.path('/basic')
+    }
 
     $scope.name = function (doctor) {
       var middleName = (doctor.profile.middle_name && doctor.profile.middle_name.length === 1) ?
@@ -156,9 +161,6 @@ app.controller('DoctorsController', [
 
       $location.path('/recommendations')
     } ;
-
-    age = picker.globals.age;
-    zipcode = picker.globals.zipcode;
 
     if (!picker.user) {
       // ...
