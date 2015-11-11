@@ -8,8 +8,8 @@ app.controller('DoctorsController', [
   'flashesFactory',
   function ($scope, $http, $location, $cookieStore, flashesFactory) {
 
-    var age = $cookieStore.get('age');
-    var zipcode = $cookieStore.get('zipcode');
+    var age = picker.globals.age;
+    var zipcode = picker.globals.zipcode;
 
     if(!zipcode){
       $location.path('/basic')
@@ -161,9 +161,6 @@ app.controller('DoctorsController', [
 
       $location.path('/recommendations')
     } ;
-
-    age = picker.globals.age;
-    zipcode = picker.globals.zipcode;
 
     if (!picker.user) {
       // ...
