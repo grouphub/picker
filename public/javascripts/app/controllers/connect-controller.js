@@ -9,7 +9,7 @@ app.controller('ConnectController', [
   'flashesFactory',
   function ($scope, $http, $location, $cookieStore, $timeout, flashesFactory) {
     $scope.ready();
-
+/*
     $scope.name = function (doctor) {
       var middleName = (doctor.profile.middle_name && doctor.profile.middle_name.length === 1) ?
         (doctor.profile.middle_name + '.') :
@@ -147,7 +147,7 @@ app.controller('ConnectController', [
 
     $scope.submit = function () {
       picker.globals.doctor = JSON.stringify($scope.currentDoctor);
-
+*/
     var data = {
       // A labels array that can contain any sort of values
       labels: ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
@@ -162,12 +162,13 @@ app.controller('ConnectController', [
       low: 0,
       showArea: true
     };
-
+/*
     $scope.skip = function () {
       picker.globals.doctor = null;
 
       $location.path('/recommendations')
     };
+    */
     // Create a new line chart object where as first parameter we pass in a selector
     // that is resolving to our chart container element. The Second parameter
     // is the actual data object.
@@ -175,7 +176,7 @@ app.controller('ConnectController', [
     $timeout(function () {
       new Chartist.Line('.ct-chart', data, options);
     }, 100);
-
+/*
     age = picker.globals.age;
     zipcode = picker.globals.zipcode;
 
@@ -217,7 +218,7 @@ app.controller('ConnectController', [
 
         flashesFactory.add('danger', message);
       });
-
+*/
     $scope.clearJumbotron();
   }
 ]);
