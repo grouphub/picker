@@ -10,10 +10,6 @@ app.controller('ConnectController', [
   function ($scope, $http, $location, $cookieStore, $timeout, flashesFactory) {
     $scope.ready();
 
-<<<<<<< HEAD
-    $scope.clearJumbotron();
-=======
-<<<<<<< HEAD
     $scope.name = function (doctor) {
       var middleName = (doctor.profile.middle_name && doctor.profile.middle_name.length === 1) ?
         (doctor.profile.middle_name + '.') :
@@ -151,10 +147,6 @@ app.controller('ConnectController', [
 
     $scope.submit = function () {
       picker.globals.doctor = JSON.stringify($scope.currentDoctor);
-=======
-    $scope.clearJumbotron();
->>>>>>> 410a7b388bbf7d9722ff4d7f8887e90d94740cae
->>>>>>> hero
 
     var data = {
       // A labels array that can contain any sort of values
@@ -166,33 +158,24 @@ app.controller('ConnectController', [
       ]
     };
 
-<<<<<<< HEAD
     var options = {
       low: 0,
       showArea: true
-=======
-<<<<<<< HEAD
+    };
+
     $scope.skip = function () {
       picker.globals.doctor = null;
 
       $location.path('/recommendations')
-=======
-    var options = {
-      low: 0,
-      showArea: true
->>>>>>> 410a7b388bbf7d9722ff4d7f8887e90d94740cae
->>>>>>> hero
     };
     // Create a new line chart object where as first parameter we pass in a selector
     // that is resolving to our chart container element. The Second parameter
     // is the actual data object.
 
-<<<<<<< HEAD
     $timeout(function () {
       new Chartist.Line('.ct-chart', data, options);
     }, 100);
-=======
-<<<<<<< HEAD
+
     age = picker.globals.age;
     zipcode = picker.globals.zipcode;
 
@@ -236,12 +219,5 @@ app.controller('ConnectController', [
       });
 
     $scope.clearJumbotron();
-=======
-    $timeout(function () {
-      new Chartist.Line('.ct-chart', data, options);
-    }, 100);
->>>>>>> 410a7b388bbf7d9722ff4d7f8887e90d94740cae
->>>>>>> hero
   }
 ]);
-
