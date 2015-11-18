@@ -1,0 +1,6 @@
+{
+  'sendgrid' : {
+  'user' : '<sengrid-user>',
+  'password' : '<sengrid-password>'
+  }
+}
