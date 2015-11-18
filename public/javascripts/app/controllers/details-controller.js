@@ -25,14 +25,14 @@ app.controller('DetailsController', [
       $scope.loading();
 
       $http
-        .post('/api/v1/enrollments.json', {})
+        .get('/api/v1/enrollments.json', {'user' : picker.user.email})
         .then(function (response) {
           $location.path('/success')
         })
         .catch(function (response) {
 
         });
-    }
+    };
 
     $scope.form = {
       previousCoverage: 'No',
