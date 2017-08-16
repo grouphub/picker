@@ -12,6 +12,8 @@ app.controller('BasicController', [
     };
 
     $scope.submit = function () {
+      parseZipCode();
+
       if (_($scope.form.age).isEmpty()) {
         flashesFactory.add('danger', 'Age must be provided.');
         return;
@@ -41,6 +43,17 @@ app.controller('BasicController', [
     $scope.clearJumbotron();
 
     $scope.ready();
+
+    var parseZipCode = function(){
+      if(typeof($scope.form.zipcode) == "number"){
+        var zipcode = $scope.form.zipcode.toString();
+
+        while(zipcode.length < 5){ zipcode = '0' + zipcode; };
+
+        $scope.form.zipcode =  zipcode;
+
+      }else{ return $scope.form.zipcode }
+    };
   }
 ]);
 
